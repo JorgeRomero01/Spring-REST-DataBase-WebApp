@@ -9,6 +9,9 @@ public class CustomerRestExceptionHandler {
 	
 	@ExceptionHandler
 	public ResponseEntity<CustomerErrorResponse> handleException(CustomerNotFoundException exc){
+		//create CustomerErrorResponse
+		
+		//return ResponseEntity
 		return null;
 	}
 	
