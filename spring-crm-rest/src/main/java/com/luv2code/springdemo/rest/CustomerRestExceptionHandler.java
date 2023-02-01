@@ -23,7 +23,7 @@ public class CustomerRestExceptionHandler {
 	@ExceptionHandler
 	public ResponseEntity<CustomerErrorResponse> handleException(Exception exc){
 		//create CustomerErrorResponse
-		//status : int
+		//status : Int
 		//message : String
 		//timeStamp : long
 		CustomerErrorResponse error = new CustomerErrorResponse(HttpStatus.BAD_REQUEST.value(), exc.getMessage(), System.currentTimeMillis());
