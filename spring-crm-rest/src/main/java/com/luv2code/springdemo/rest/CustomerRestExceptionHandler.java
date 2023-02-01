@@ -11,10 +11,25 @@ public class CustomerRestExceptionHandler {
 	@ExceptionHandler
 	public ResponseEntity<CustomerErrorResponse> handleException(CustomerNotFoundException exc){
 		//create CustomerErrorResponse
+		//status : int
+		//message : String
+		//timeStamp : long
 		CustomerErrorResponse error = new CustomerErrorResponse(HttpStatus.NOT_FOUND.value(), exc.getMessage(), System.currentTimeMillis());
 		
 		//return ResponseEntity
-		return null;
+		return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler
+	public ResponseEntity<CustomerErrorResponse> handleException(Exception exc){
+		//create CustomerErrorResponse
+		//status : int
+		//message : String
+		//timeStamp : long
+		CustomerErrorResponse error = new CustomerErrorResponse(HttpStatus.BAD_REQUEST.value(), exc.getMessage(), System.currentTimeMillis());
+		
+		//return ResponseEntity
+		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
 	
 	
